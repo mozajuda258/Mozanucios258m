@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moz Anúncios 258 - Compra e Vende em Moçambique</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f6f8;margin:0}
+header{background:#0f7a3d;color:white;padding:15px;text-align:center}
+.container{max-width:650px;margin:15px auto;padding:0 12px}
+.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card-destaque{background:#fff8e1;border:2px solid #ffc107}
+.card-denunciado{border:2px solid #dc3545;background:#fff5f5}
+.card-procura{border:2px solid #dc3545;background:#fdecea}
+input,textarea,select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;font-size:15px}
+button{background:#0f7a3d;color:white;border:0;padding:13px;border-radius:8px;width:100%;font-size:16px;font-weight:bold;cursor:pointer;margin-top:6px}
+.whats{background:#25D366}.btn-gosto{background:#ff4757}.btn-partilhar{background:#007bff}.btn-denunciar{background:#6c757d}.btn-editar{background:#ffc107;color:#000}.btn-apagar{background:#dc3545}.btn-destaque{background:#ff9800}.btn-publi{background:#ffc107;color:#000}.btn-procura{background:#dc3545}.btn-painel{background:#222}
+.tag{background:#e6f4ea;color:#0f7a3d;padding:3px 8px;border-radius:20px;font-size:12px}
+.tag-destaque{background:#ffc107;color:#000;padding:3px 8px;border-radius:20px;font-size:12px;font-weight:bold}
+.tag-procura{background:#dc3545;color:white;padding:3px 8px;border-radius:20px;font-size:12px;font-weight:bold}
+.row{display:flex;gap:8px}.row button{flex:1}
+img.foto-anuncio{width:100%;border-radius:10px;margin-top:10px}
+footer{text-align:center;padding:20px}
+#cookie{position:fixed;bottom:0;left:0;right:0;background:#222;color:white;padding:12px;text-align:center;font-size:13px;z-index:999}
+#cookie button{width:auto;padding:8px 20px;background:#ffc107;color:#000}
+#painelDono{display:none;background:#111;color:white;padding:15px;border-radius:12px;margin-bottom:12px}
+#painelDono h2{color:#ffc107}
+#painelDono .card{color:#111}
+</style>
+</head>
+<body>
+<header>
+<h1>🇲🇿 MOZ ANÚNCIOS 258</h1>
+<p>Compra e vende em todo Moçambique - Grátis</p>
+</header>
+<div class="container">
+
+<!-- PAINEL DO DONO -->
+<div class="card" style="text-align:center">
+<button class="btn-painel" onclick="abrirPainel()">🔐 PAINEL DO DONO</button>
+</div>
+<div id="painelDono">
+<h2>🔐 PAINEL DO DONO</h2>
+<p>WhatsApp Publicidade / Destaques: <b>833715054</b> | e-Mola: <b>874193775</b></p>
+<div style="background:#222;padding:10px;border-radius:8px">
+<p>📊 Total anúncios: <b id="statTotal">0</b></p>
+<p>⭐ Destaques: <b id="statDestaque">0</b></p>
+<p>⚠️ Denúncias: <b id="statDenuncias">0</b></p>
+<p>💼 Vagas: <b id="statVagas">0</b></p>
+<p>🔍 Procura-se: <b id="statProcura">0</b></p>
+<p>❤️ Gostei: <b id="statGostei">0</b></p>
+<p>👁️ Visualizações: <b id="statViews">0</b></p>
+</div>
+<p style="font-size:13px">Como dono podes apagar qualquer anúncio e ativar destaque. No feed, os botões de dono aparecem em baixo.</p>
+<button onclick="fecharPainel()" style="background:#ffc107;color:#000">Fechar Painel</button>
+</div>
+
+<!-- PUBLICIDADE SEM VALIDADE -->
+<div class="card card-destaque" style="text-align:center">
+<h2 style="margin:5px">⭐ PUBLICIDADE</h2>
+<a id="linkPubli" href="https://wa.me/258833715054" target="_blank">
+<img id="fotoPubli" src="publi1.jpg" style="width:100%;border-radius:12px">
+</a>
+<p id="nomePubli" style="font-weight:bold">Moz Ajuda 258 - Ajuda em Moçambique</p>
+<p style="font-size:12px;color:#555">Este espaço pode ser da tua empresa! Toca para falar connosco: 833715054</p>
+<div style="font-size:22px"><span id="p0" style="color:#ffc107">●</span> <span id="p1" style="color:#ccc">●</span> <span id="p2" style="color:#ccc">●</span></div>
+<button class="btn-publi" onclick="queroPublicidade()">📢 QUERO PÔR A MINHA EMPRESA AQUI - 833715054</button>
+</div>
+
+<!-- BOTÕES IGUAIS -->
+<div class="card" style="text-align:center;">
+<h2 style="margin:5px">💼 Vagas de Emprego</h2>
+<p style="font-size:14px">Procuras emprego? Ou tens uma vaga?</p>
+<button onclick="mostrarVagas()">💼 VER VAGAS DE EMPREGO</button>
+<button onclick="publicarVaga()" style="background:#ffc107;color:#000;">➕ PUBLICAR VAGA GRÁTIS</button>
+</div>
+<div class="card" style="text-align:center;">
+<h2 style="margin:5px">🔍 Procura-se</h2>
+<p style="font-size:14px">Alguém desapareceu? Publica aqui, vai para o site e para o WhatsApp do dono.</p>
+<button onclick="mostrarProcuraSe()">🔍 VER PESSOAS DESAPARECIDAS</button>
+<button onclick="publicarProcuraSe()" class="btn-procura">🚨 PUBLICAR PROCURA-SE GRÁTIS</button>
+</div>
+
+<!-- PUBLICAR -->
+<div class="card">
+<h2>📢 Publicar Anúncio Grátis</h2>
+<select id="categoria" onchange="mostrarPerguntas()">
+<option value="Carros">🚗 Carros e Motas</option>
+<option value="Casas">🏠 Casas e Terrenos</option>
+<option value="Telefones">📱 Telefones</option>
+<option value="Roupa">👗 Roupa e Moda</option>
+<option value="Empregos">💼 Empregos - Vaga</option>
+<option value="Procura-se">🔍 Procura-se - Pessoa Desaparecida</option>
+<option value="Outros">🛒 Outros</option>
+</select>
+<div id="perguntasEmprego" style="display:none;background:#e6f4ea;padding:10px;border-radius:10px;border:1px solid #0f7a3d;">
+<h3>💼 Perguntas da Vaga</h3>
+<input id="cargo" placeholder="Cargo / Função - Ex: Caixa, Motorista">
+<select id="tipoTrabalho"><option value="">Tipo de trabalho</option><option>Tempo Inteiro</option><option>Meio Tempo / Part-time</option><option>Temporário</option><option>Estágio</option></select>
+<input id="salario" placeholder="Salário - Ex: 8000 MT / A combinar">
+<select id="experiencia"><option value="">Experiência exigida?</option><option>Sem experiência</option><option>1 ano de experiência</option><option>2 anos ou mais</option></select>
+<input id="horario" placeholder="Horário - Ex: 8h às 17h, Segunda a Sexta">
+<textarea id="requisitos" rows="2" placeholder="O que a pessoa precisa ter? Ex: 12ª classe, carta"></textarea>
+</div>
+<div id="perguntasProcuraSe" style="display:none;background:#fdecea;padding:10px;border-radius:10px;border:1px solid #dc3545;">
+<h3 style="color:#dc3545">🔍 Perguntas de Procura-se</h3>
+<input id="nomeDesaparecido" placeholder="Nome completo da pessoa desaparecida">
+<input id="idadeDesaparecido" placeholder="Idade - Ex: 14 anos">
+<select id="sexoDesaparecido"><option value="">Sexo</option><option>Feminino</option><option>Masculino</option></select>
+<input id="ultimoLocal" placeholder="Onde foi visto/a pela última vez? Ex: Matola, Nkobe">
+<input id="dataDesapareceu" type="date">
+<input id="roupa" placeholder="Que roupa vestia? Ex: Camiseta vermelha">
+<input id="sinais" placeholder="Sinais especiais - Ex: Cicatriz na testa">
+<textarea id="contatoFamilia" rows="2" placeholder="Contacto da família - Ex: 84 123 4567 - Mãe Maria"></textarea>
+<p style="font-size:12px;color:#721c24;">⚠️ Não publiques fotos de crianças sem autorização da família. Se já encontraste, apaga logo.</p>
+</div>
+<input id="titulo" placeholder="O que vendes? Ex: iPhone 11">
+<input id="preco" placeholder="Preço em MT - Ex: 15000">
+<input id="cidade" placeholder="Cidade / Bairro - Ex: Matola, Maputo">
+<input id="nomeSecreto" placeholder="Teu nome SECRETO - só tu sabes, para editar/apagar depois">
+<textarea id="desc" rows="3" placeholder="Descreve..."></textarea>
+<input id="numero" placeholder="Teu WhatsApp - Ex: 833715054">
+<label><b>Foto:</b></label>
+<input type="file" id="foto" accept="image/*">
+<img id="preview" style="display:none;width:100%;border-radius:10px;margin-top:8px">
+<button onclick="publicar()">PUBLICAR GRÁTIS</button>
+<p id="status" style="text-align:center;color:green"></p>
+</div>
+
+<!-- PESQUISA -->
+<div class="card">
+<h2>🔍 Pesquisar</h2>
+<input id="pesquisa" placeholder="Pesquisa: iPhone, casa, Matola..." oninput="mostrarFeed()">
+<select id="filtro" onchange="mostrarFeed()">
+<option value="">Todas categorias</option>
+<option value="Carros">🚗 Carros</option>
+<option value="Casas">🏠 Casas</option>
+<option value="Telefones">📱 Telefones</option>
+<option value="Roupa">👗 Roupa</option>
+<option value="Empregos">💼 Empregos</option>
+<option value="Procura-se">🔍 Procura-se</option>
+<option value="Outros">🛒 Outros</option>
+</select>
+</div>
+<div id="feed"></div>
+
+<div class="card">
+<h2>📍 Sobre nós</h2>
+<p>Somos de Moçambique. Ajudamos todos a vender e comprar de forma simples.</p>
+<p>WhatsApp: <b>833715054</b> | e-Mola: <b>874193775</b> | M-Kesh: <b>833715054</b></p>
+<p>Destaque: 200 MT / 7 dias. Publicidade: fala no 833715054 - SEM VALIDADE.</p>
+</div>
+</div>
+
+<!-- RODAPÉ COM E-MOLA -->
+<footer style="background:#111;color:white;">
+<p style="font-size:16px;font-weight:bold;color:#ffc107;">🇲🇿 MOZ ANÚNCIOS 258</p>
+<p>Compra e vende em todo Moçambique - Grátis</p>
+<p>📞 WhatsApp Publicidade / Destaques: <b>833715054</b></p>
+<p style="background:#ff0000;padding:10px;border-radius:8px;font-weight:bold;font-size:16px;">📱 e-Mola: 874193775<br>📱 M-Kesh: 833715054</p>
+<p style="font-size:13px;">Destaque: 200 MT / 7 dias - Paga no e-Mola 874193775 e manda comprovativo no 833715054<br>Publicidade: Fala no 833715054 - SEM VALIDADE</p>
+<p style="font-size:12px;"><a href="#" onclick="verPolitica();return false" style="color:#ffc107">Política de Privacidade</a> | <a href="#" onclick="verTermos();return false" style="color:#ffc107">Termos de Uso</a> | <a href="#" onclick="verCookies();return false" style="color:#ffc107">Cookies</a></p>
+<p style="font-size:11px;color:#aaa;">© 2026 Moz Anúncios 258 - Moçambique. Não somos responsáveis por negócios entre vendedor e comprador. Verifique sempre antes de pagar.</p>
+</footer>
+<div id="cookie">Usamos cookies para o site funcionar. Ao continuar, aceitas a nossa Política de Privacidade.<button onclick="document.getElementById('cookie').style.display='none'">Aceitar</button></div>
+
+<script>
+// PUBLICIDADE SEM VALIDADE
+let publicidades=[{foto:"publi1.jpg",nome:"Moz Ajuda 258 - Ajuda em Moçambique",whats:"258833715054"}];
+let indicePubli=0;
+function trocarPubli(){if(publicidades.length<=1) return; indicePubli=(indicePubli+1)%publicidades.length; let a=publicidades[indicePubli]; document.getElementById('fotoPubli').src=a.foto; document.getElementById('nomePubli').innerText=a.nome; document.getElementById('linkPubli').href="https://wa.me/"+a.whats; for(let i=0;i<3;i++){let el=document.getElementById('p'+i); if(el) el.style.color=(i==indicePubli)?'#ffc107':'#ccc';}}
+setInterval(trocarPubli,10000);
+function queroPublicidade(){window.open("https://wa.me/258833715054?text="+encodeURIComponent("Olá Moz Anúncios! Quero PUBLICIDADE. Qual é o preço?"),"_blank");}
+function verPolitica(){alert("POLÍTICA: Guardamos só o que publicas. Não vendemos teus dados. Podes pedir para apagar no WhatsApp 833715054.");}
+function verTermos(){alert("TERMOS: Proibido burlas, produtos roubados, documentos ou conteúdo falso.");}
+function verCookies(){alert("COOKIES: Usamos cookies só para o site funcionar.");}
+function mostrarPerguntas(){let cat=document.getElementById('categoria').value; let dE=document.getElementById('perguntasEmprego'); let dP=document.getElementById('perguntasProcuraSe'); if(cat==='Empregos'){dE.style.display='block';dP.style.display='none';document.getElementById('titulo').placeholder='Ex: Precisa-se Caixa em Maputo';document.getElementById('preco').placeholder='Salário em MT - Ex: 8000';} else if(cat==='Procura-se'){dE.style.display='none';dP.style.display='block';document.getElementById('titulo').placeholder='Ex: PROCURA-SE Maria, 14 anos, Matola';document.getElementById('preco').placeholder='Recompensa? Ex: 0 ou 5000 MT';} else{dE.style.display='none';dP.style.display='none';document.getElementById('titulo').placeholder='O que vendes? Ex: iPhone 11';document.getElementById('preco').placeholder='Preço em MT - Ex: 15000';}}
+function mostrarVagas(){document.getElementById('filtro').value='Empregos';mostrarFeed();document.getElementById('feed').scrollIntoView({behavior:'smooth'});}
+function publicarVaga(){document.getElementById('categoria').value='Empregos';mostrarPerguntas();window.scrollTo({top:0,behavior:'smooth'});}
+function mostrarProcuraSe(){document.getElementById('filtro').value='Procura-se';mostrarFeed();document.getElementById('feed').scrollIntoView({behavior:'smooth'});}
+function publicarProcuraSe(){document.getElementById('categoria').value='Procura-se';mostrarPerguntas();window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, remove, update } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-database.js";
+const firebaseConfig={apiKey:"AIzaSyCZuXx-xgo8RYjt-Nt3NZUV7Sw4js-wU-c",authDomain:"mozajuda258.firebaseapp.com",databaseURL:"https://mozajuda258-default-rtdb.firebaseio.com",projectId:"mozajuda258",storageBucket:"mozajuda258.firebasestorage.app",messagingSenderId:"784993314685",appId:"1:784993314685:web:22e2317e6315f059c1ce14"};
+const app=initializeApp(firebaseConfig); const db=getDatabase(app); const postsRef=ref(db,'anuncios2');
+let fotoBase64=""; let postsAtuais={}; let souDono=false;
+document.getElementById('foto').addEventListener('change',(e)=>{const file=e.target.files[0]; if(!file) return; const reader=new FileReader(); reader.onload=()=>{const img=new Image(); img.onload=()=>{const canvas=document.createElement('canvas'); const max=800; let w=img.width,h=img.height; if(w>max){h=h*max/w; w=max;} canvas.width=w; canvas.height=h; canvas.getContext('2d').drawImage(img,0,0,w,h); fotoBase64=canvas.toDataURL('image/jpeg',0.7); const prev=document.getElementById('preview'); prev.src=fotoBase64; prev.style.display='block';}; img.src=reader.result;}; reader.readAsDataURL(file);});
+
+window.abrirPainel=function(){const senha=prompt('Senha do Dono:'); if(senha==='833715054'||senha==='moz258'){souDono=true; document.getElementById('painelDono').style.display='block'; mostrarFeed(); alert('Bem-vindo, Dono!');} else alert('Senha errada.');};
+window.fecharPainel=function(){souDono=false; document.getElementById('painelDono').style.display='none'; mostrarFeed();};
+window.ativarDestaqueDono=function(key){if(!souDono) return; const fim=Date.now()+7*24*60*60*1000; update(ref(db,'anuncios2/'+key),{destaque:true,fimDestaque:fim}); alert('Destaque ativado por 7 dias!');};
+window.apagarDono=function(key){if(!souDono) return; if(confirm('Apagar este anúncio como DONO?')) remove(ref(db,'anuncios2/'+key));};
+
+window.publicar=function(){
+  const titulo=document.getElementById('titulo').value.trim(); const categoria=document.getElementById('categoria').value; const preco=document.getElementById('preco').value.trim(); const cidade=document.getElementById('cidade').value.trim(); const nome=document.getElementById('nomeSecreto').value.trim(); const desc=document.getElementById('desc').value.trim(); const numero=document.getElementById('numero').value.trim();
+  if(!titulo||!preco||!numero||!nome){alert('Escreve título, preço, nome secreto e WhatsApp');return;}
+  let extra='';
+  if(categoria==='Empregos'){extra=`\n💼 Cargo: ${document.getElementById('cargo').value}\nTipo: ${document.getElementById('tipoTrabalho').value}\nSalário: ${document.getElementById('salario').value}\nExperiência: ${document.getElementById('experiencia').value}\nHorário: ${document.getElementById('horario').value}\nRequisitos: ${document.getElementById('requisitos').value}`;}
+  if(categoria==='Procura-se'){extra=`\n🔍 Nome: ${document.getElementById('nomeDesaparecido').value}\nIdade: ${document.getElementById('idadeDesaparecido').value}\nSexo: ${document.getElementById('sexoDesaparecido').value}\nÚltimo local: ${document.getElementById('ultimoLocal').value}\nData: ${document.getElementById('dataDesapareceu').value}\nRoupa: ${document.getElementById('roupa').value}\nSinais: ${document.getElementById('sinais').value}\nFamília: ${document.getElementById('contatoFamilia').value}`;}
+  push(postsRef,{titulo,categoria,preco,cidade,nome,desc:desc+extra,numero,foto:fotoBase64,likes:0,visualizacoes:0,denuncias:0,comentarios:[],destaque:false,fimDestaque:0,data:Date.now()});
+  document.getElementById('status').innerText='Publicado com sucesso!';
+  document.getElementById('titulo').value=''; document.getElementById('desc').value=''; fotoBase64=''; document.getElementById('preview').style.display='none';
+  // PROCURA-SE TAMBÉM VAI PARA O TEU WHATSAPP 833715054
+  if(categoria==='Procura-se'){
+    let msgProcura="🚨 NOVO PROCURA-SE - MOZ ANÚNCIOS 258\n\nTítulo: "+titulo+"\nCidade: "+cidade+"\nRecompensa: "+preco+" MT\n"+extra+"\nDescrição: "+desc+"\nContacto família: "+numero+"\nVê no site: https://mozajuda258.github.io/mozanuncios258/";
+    window.open("https://wa.me/258833715054?text="+encodeURIComponent(msgProcura),"_blank");
+    alert('Publicado no site E enviado para o WhatsApp do Dono 833715054!');
+  }
+};
+
+window.darGosto=function(key){const p=postsAtuais[key]; update(ref(db,'anuncios2/'+key),{likes:(p.likes||0)+1});};
+window.partilharPost=function(msg){const texto="Vê no Moz Anúncios 258: "+msg+" | https://mozajuda258.github.io/mozanuncios258/"; if(navigator.share){navigator.share({title:'Moz Anúncios',text:texto,url:'https://mozajuda258.github.io/mozanuncios258/'});} else{window.open("https://wa.me/?text="+encodeURIComponent(texto),"_blank");}};
+window.verAnuncio=function(key){const p=postsAtuais[key]; update(ref(db,'anuncios2/'+key),{visualizacoes:(p.visualizacoes||0)+1});};
+window.comentar=function(key){const texto=prompt('Escreve a tua pergunta. Ex: Ainda está disponível?'); if(!texto) return; const p=postsAtuais[key]; let lista=p.comentarios||[]; lista.push({texto,data:Date.now()}); update(ref(db,'anuncios2/'+key),{comentarios:lista});};
+window.queroDestaquePost=function(msg){window.open("https://wa.me/258833715054?text="+encodeURIComponent("Olá Moz Anúncios! Quero DESTAQUE 200 MT / 7 dias para: "+msg),"_blank");};
+function verificarDono(key){const p=postsAtuais[key]; const meuNome=prompt('Escreve o teu nome SECRETO:'); if(meuNome===null) return false; const meuNum=prompt('Escreve o MESMO número que usaste:'); if(meuNum===null) return false; const limpar=(s)=>String(s||'').replace(/[^0-9]/g,'').slice(-9); return meuNome.trim().toLowerCase()===String(p.nome||'').trim().toLowerCase() && limpar(meuNum)===limpar(p.numero);}
+// COMPRADOR NÃO VÊ EDITAR/APAGAR - SÓ VENDEDOR COM SEGREDO
+window.souVendedor=function(key){
+  const p=postsAtuais[key];
+  const nome=prompt('Para provar que és o vendedor, escreve o teu nome SECRETO:'); if(nome===null) return;
+  const num=prompt('Escreve o MESMO número que usaste para publicar:'); if(num===null) return;
+  const limpar=(s)=>String(s||'').replace(/[^0-9]/g,'').slice(-9);
+  const certo=nome.trim().toLowerCase()===String(p.nome||'').trim().toLowerCase() && limpar(num)===limpar(p.numero);
+  if(certo){document.getElementById('botoesDono-'+key).style.display='block'; alert('Bem-vindo, vendedor! Agora podes Editar e Apagar.');} else alert('Não és o vendedor deste produto.');
+};
+window.apagarPost=function(key){if(verificarDono(key)){if(confirm('Apagar para sempre?')) remove(ref(db,'anuncios2/'+key));} else alert('Não é teu.');};
+window.editarPost=function(key){if(!verificarDono(key)){alert('Não é teu.');return;} const p=postsAtuais[key]; const novoPreco=prompt('Novo preço:',p.preco); if(novoPreco===null) return; const novaDesc=prompt('Nova descrição:',p.desc); update(ref(db,'anuncios2/'+key),{preco:novoPreco,desc:novaDesc}); alert('Atualizado.');};
+window.denunciarPost=function(key){const motivo=prompt('Porque denuncias? Falso / Burla / Roubado / Outro'); if(!motivo) return; const p=postsAtuais[key]; const novo=(p.denuncias||0)+1; update(ref(db,'anuncios2/'+key),{denuncias:novo}); const texto=encodeURIComponent("⚠️ DENÚNCIA MOZ ANÚNCIOS\nAnúncio: "+p.titulo+"\nMotivo: "+motivo+"\nTotal: "+novo); window.open("https://wa.me/258833715054?text="+texto,"_blank"); alert('Denúncia enviada!');};
+
+// LOJA DO VENDEDOR
+window.verLoja=function(numeroVendedor){
+  window.vendedorAtual=numeroVendedor;
+  let lista=Object.entries(postsAtuais).filter(([k,p])=>{let limpar=(s)=>String(s||'').replace(/[^0-9]/g,'').slice(-9); return limpar(p.numero)===limpar(numeroVendedor);});
+  let feed=document.getElementById('feed');
+  let total=lista.length; let totalGostei=lista.reduce((s,[k,p])=>s+(p.likes||0),0); let totalViews=lista.reduce((s,[k,p])=>s+(p.visualizacoes||0),0);
+  feed.innerHTML=`<div class="card" style="text-align:center;border:3px solid #0f7a3d;"><h2>🏪 Loja do Vendedor</h2><p style="font-size:18px;font-weight:bold;">WhatsApp: ${numeroVendedor}</p><p>📦 ${total} anúncios | ❤️ ${totalGostei} gostei | 👁️ ${totalViews} views</p><a href="https://wa.me/258${String(numeroVendedor).replace(/[^0-9]/g,'').slice(-9)}" target="_blank"><button class="whats">💬 Falar com este Vendedor</button></a><button onclick="partilharLoja('${numeroVendedor}')" style="background:#007bff;">↗️ Partilhar esta Loja</button><button onclick="mostrarFeed()" style="background:#6c757d;">⬅️ Voltar para todos</button></div><h2>📦 Tudo o que ele vende:</h2>`;
+  lista.sort((a,b)=>b[1].data-a[1].data);
+  lista.forEach(([key,p])=>{
+    feed.innerHTML+=`<div class="card ${p.destaque?'card-destaque':''}"><span class="tag">${p.categoria}</span><h3>${p.titulo}</h3><p><b>${p.preco} MT</b> - 📍 ${p.cidade||'Moçambique'}</p><p style="white-space:pre-line">${p.desc||''}</p>${p.foto?`<img src="${p.foto}" class="foto-anuncio">`:''}<a href="https://wa.me/258${String(p.numero).replace(/[^0-9]/g,'').slice(-9)}" target="_blank"><button class="whats">💬 Comprar este</button></a><button onclick="souVendedor('${key}')" style="background:#222;">🔐 Sou o Vendedor - Editar / Apagar</button><div id="botoesDono-${key}" style="display:none;"><div class="row"><button class="btn-editar" onclick="editarPost('${key}')">✏️ Editar</button><button class="btn-apagar" onclick="apagarPost('${key}')">🗑️ Apagar</button></div></div><button onclick="mostrarFeed()" style="background:#6c757d;">⬅️ Voltar</button></div>`;
+  });
+  if(total==0) feed.innerHTML+=`<div class="card">Este vendedor ainda não tem outros anúncios.</div>`;
+  feed.scrollIntoView({behavior:'smooth'});
+};
+window.partilharLoja=function(numero){let texto="Vê a loja deste vendedor no Moz Anúncios 258! WhatsApp: "+numero+" | https://mozajuda258.github.io/mozanuncios258/"; window.open("https://wa.me/?text="+encodeURIComponent(texto),"_blank");};
+
+window.mostrarFeed=function(){
+  const feed=document.getElementById('feed'); const busca=(document.getElementById('pesquisa').value||'').toLowerCase(); const filtro=document.getElementById('filtro').value;
+  feed.innerHTML='<h2>Anúncios Recentes</h2>';
+  if(!postsAtuais||Object.keys(postsAtuais).length==0){feed.innerHTML+='<div class="card">Ainda não há anúncios. Sê o primeiro!</div>';return;}
+  let total=Object.keys(postsAtuais).length; let dest=Object.values(postsAtuais).filter(p=>p.destaque && (!p.fimDestaque || Date.now()<p.fimDestaque)).length; let den=Object.values(postsAtuais).reduce((s,p)=>s+(p.denuncias||0),0); let vagas=Object.values(postsAtuais).filter(p=>p.categoria==='Empregos').length; let proc=Object.values(postsAtuais).filter(p=>p.categoria==='Procura-se').length; let gost=Object.values(postsAtuais).reduce((s,p)=>s+(p.likes||0),0); let views=Object.values(postsAtuais).reduce((s,p)=>s+(p.visualizacoes||0),0);
+  document.getElementById('statTotal').innerText=total; document.getElementById('statDestaque').innerText=dest; document.getElementById('statDenuncias').innerText=den; document.getElementById('statVagas').innerText=vagas; document.getElementById('statProcura').innerText=proc; document.getElementById('statGostei').innerText=gost; document.getElementById('statViews').innerText=views;
+  let lista=Object.entries(postsAtuais); lista.forEach(([k,p])=>{if(p.destaque && p.fimDestaque && Date.now()>p.fimDestaque) p.destaque=false;});
+  lista.sort((a,b)=>{if((b[1].destaque||false)!==(a[1].destaque||false)) return (b[1].destaque?1:0)-(a[1].destaque?1:0); return b[1].data-a[1].data;});
+  if(filtro) lista=lista.filter(([k,p])=>p.categoria===filtro);
+  if(busca) lista=lista.filter(([k,p])=>((p.titulo||'')+' '+(p.cidade||'')+' '+(p.desc||'')).toLowerCase().includes(busca));
+  if(lista.length==0){feed.innerHTML+='<div class="card">Nenhum resultado.</div>';return;}
+  lista.forEach(([key,p])=>{
+    const denunciado=(p.denuncias||0)>=3; const dataStr=new Date(p.data).toLocaleString('pt-MZ'); const isProcura=p.categoria==='Procura-se';
+    feed.innerHTML+=`<div class="card ${p.destaque?'card-destaque':''} ${denunciado?'card-denunciado':''} ${isProcura?'card-procura':''}">${p.destaque?'<span class="tag-destaque">⭐ DESTAQUE</span>':''} ${isProcura?'<span class="tag-procura">🚨 PROCURA-SE</span>':''} <span class="tag">${p.categoria}</span><h3>${p.titulo}</h3><p><b>${isProcura?'Recompensa: ':''}${p.preco} MT</b> - 📍 ${p.cidade||'Moçambique'} | <a href="https://www.google.com/maps/search/${encodeURIComponent(p.cidade||'Moçambique')}" target="_blank">Ver no Mapa</a></p><small>${dataStr} • 👁️ ${p.visualizacoes||0} • ⚠️ ${p.denuncias||0}</small><p style="white-space:pre-line">${p.desc||''}</p>${p.foto?`<img src="${p.foto}" class="foto-anuncio">`:''}${denunciado?'<div style="background:#f8d7da;padding:10px;border-radius:8px;color:#721c24;font-weight:bold;text-align:center">⚠️ DENUNCIADO '+(p.denuncias)+'x - EM ANÁLISE</div>':''}<a href="https://wa.me/258${String(p.numero).replace(/[^0-9]/g,'').slice(-9)}" target="_blank"><button class="whats">💬 Falar no WhatsApp: ${p.numero}</button></a><button onclick="verLoja('${p.numero}')" style="background:#222;">🏪 VER LOJA DESTE VENDEDOR</button><div class="row"><button class="btn-gosto" onclick="darGosto('${key}')">❤️ Gostei (${p.likes||0})</button><button class="btn-partilhar" onclick="partilharPost('${String(p.titulo).replace(/'/g,'')}')">↗️ Partilhar</button><button onclick="verAnuncio('${key}')">👁️ Ver</button></div><button class="btn-destaque" onclick="queroDestaquePost('${String(p.titulo).replace(/'/g,'')}')">⭐ Quero Destaque 200 MT / 7 dias - 833715054</button><button onclick="comentar('${key}')">💬 Perguntar: Ainda está disponível? (${(p.comentarios||[]).length})</button>${(p.comentarios||[]).map(c=>`<p style="background:#f4f6f8;padding:8px;border-radius:8px;font-size:13px">💬 ${c.texto}</p>`).join('')}<button class="btn-denunciar" onclick="denunciarPost('${key}')">⚠️ Denunciar</button><button onclick="souVendedor('${key}')" style="background:#222;">🔐 Sou o Vendedor - Editar / Apagar</button><div id="botoesDono-${key}" style="display:none;"><div class="row"><button class="btn-editar" onclick="editarPost('${key}')">✏️ Editar este produto</button><button class="btn-apagar" onclick="apagarPost('${key}')">🗑️ Apagar este produto</button></div></div>${souDono?`<div style="background:#111;color:white;padding:10px;border-radius:8px;margin-top:8px"><b>🔐 DONO:</b><button onclick="ativarDestaqueDono('${key}')" style="background:#ffc107;color:#000">⭐ Ativar Destaque 7 dias</button><button onclick="apagarDono('${key}')" style="background:#dc3545">🗑️ Apagar como Dono</button></div>`:''}</div>`;
+  });
+};
+onValue(postsRef,(snap)=>{postsAtuais=snap.val()||{}; mostrarFeed();});
+</script>
+</body>
+</html>
